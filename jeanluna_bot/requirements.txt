@@ -1,0 +1,4 @@
+git+https://github.com/gabsoares11/jeanluna_bot
+dnspython==1.16.0
+async-timeout==3.0.1
+tweepy==3.9.0

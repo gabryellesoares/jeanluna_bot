@@ -38,9 +38,11 @@ def reply_and_retweet():
         if 'jean luna' in tweet.full_text.lower():
             print ('found jean luna!')
             print ('it works!!!')
+            api.create_favorite(tweet.id)
             api.retweet(tweet.id)
             api.update_status('@' + tweet.user.screen_name + ' jean luna', tweet.id)
 
+# each 15 seconds it will run again
 while True:
     reply_and_retweet()
     time.sleep(15)
