@@ -1,10 +1,12 @@
 import tweepy
 import time
+from os import environ
 
-CONSUMER_KEY = 'WI1KD0sAnBQGVptHeBEMvxRqs'
-CONSUMER_SECRET = 'lg4kHPMrcRLKkzKAazQ8gFAz3myWPUXKFf6aCJ6EC8ZTreNIQK'
-ACCESS_KEY = '1289979324930686981-I7BdzsM2CzrSvaFSiAk9NdgEdGhplP'
-ACCESS_SECRET = 'kaBjgEZQvTO1nSqJg3wCABF6ilntYZVIOgrKGJANnFMKC'
+# yes i've regenerated the keys
+CONSUMER_KEY = environ['CONSUMER_KEY']
+CONSUMER_SECRET = environ['CONSUMER_SECRET']
+ACCESS_KEY = environ['ACCESS_KEY']
+ACCESS_SECRET = environ['ACCESS_SECRET']
 FILE_NAME = 'last_tweet_id.txt'
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
