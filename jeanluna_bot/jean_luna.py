@@ -29,20 +29,20 @@ last_tweet_id = retrieve_last_tweet_id(FILE_NAME)
 tweets = api.search(q='jean luna', since_id=last_tweet_id, tweet_mode='extended')
 
 def reply_and_retweet():
-    print ('testing')
-    
     # the tweets are going to be retweeted/responded in chronologic order
-    # 1289993816586326018 id for testing
     for tweet in reversed(tweets): 
+        flag = False
         print(str(tweet.id) + ' - ' + tweet.full_text)
         last_tweet_id = tweet.id
+        user = tweet.user.screen_name
         store_last_tweet_id(last_tweet_id, FILE_NAME)
-        if 'jean luna' in tweet.full_text.lower():
+        if 'jean luna' in tweet.full_text.lower() and flag == False:
             print ('found jean luna!')
             print ('it works!!!')
             api.create_favorite(tweet.id)
             api.retweet(tweet.id)
             api.update_status('@' + tweet.user.screen_name + ' jean luna', tweet.id)
+            flag = True
 
 # each 15 seconds it will run again
 while True:
