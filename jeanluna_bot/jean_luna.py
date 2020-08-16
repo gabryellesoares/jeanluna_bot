@@ -26,7 +26,6 @@ def store_last_tweet_id(last_tweet_id, file_name):
     return
 
 last_tweet_id = retrieve_last_tweet_id(FILE_NAME)
-tweets = api.search(q='jean luna', since_id=last_tweet_id, tweet_mode='extended')
 
 def reply_and_retweet():
     # the tweets are going to be retweeted/responded in chronologic order
@@ -50,5 +49,6 @@ def reply_and_retweet():
 
 # each 15 seconds it will run again
 while True:
+    tweets = api.search(q='jean luna', since_id=last_tweet_id, tweet_mode='extended')
     reply_and_retweet()
     time.sleep(15)
