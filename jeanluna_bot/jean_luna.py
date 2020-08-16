@@ -44,6 +44,9 @@ def reply_and_retweet():
                 api.create_favorite(tweet.id)
                 api.retweet(tweet.id)
                 api.update_status('@' + tweet.user.screen_name + ' jean luna', tweet.id)
+        except tweepy.error.TweepError as e:
+            next
+
 
 # each 15 seconds it will run again
 while True:
